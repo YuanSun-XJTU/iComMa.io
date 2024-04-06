@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <!-- Meta tags for social media banners, these should be filled in appropriatly as they are your "business card" -->
+  <!-- Replace the content tag with appropriate information -->
+  <meta name="description" content="DESCRIPTION META TAG">
+  <meta property="og:title" content="SOCIAL MEDIA TITLE TAG"/>
+  <meta property="og:description" content="SOCIAL MEDIA DESCRIPTION TAG TAG"/>
+  <meta property="og:url" content="URL OF THE WEBSITE"/>
+  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X630-->
+  <meta property="og:image" content="static/image/your_banner_image.png" />
+  <meta property="og:image:width" content="1200"/>
+  <meta property="og:image:height" content="630"/>
+
+
+  <meta name="twitter:title" content="TWITTER BANNER TITLE META TAG">
+  <meta name="twitter:description" content="TWITTER BANNER DESCRIPTION META TAG">
+  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X600-->
+  <meta name="twitter:image" content="static/images/your_twitter_banner_image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <!-- Keywords for your paper to be indexed by-->
+  <meta name="keywords" content="KEYWORDS SHOULD BE PLACED HERE">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+  <title>iComMa</title>
+  <link rel="icon" type="image/x-icon" href="">
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+  rel="stylesheet">
+
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script src="static/js/bulma-carousel.min.js"></script>
+  <script src="static/js/bulma-slider.min.js"></script>
+  <script src="static/js/index.js"></script>
+</head>
+<body>
+
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">iComMa: Inverting 3D Gaussian Splatting for Camera Pose Estimation via Comparing and Matching</h1>
+            <div class="is-size-5 publication-authors">
+              <!-- Paper authors -->
+              <span class="author-block">
+                Yuan Sun<sup>&dagger;,1</sup>,</span>
+                <span class="author-block">
+                  <a href="https://xuanwangvc.github.io/" target="_blank">Xuan Wang</a><sup>&dagger;,2</sup>,</span>
+                  <span class="author-block">
+                    Yunfan Zhang<sup>1</sup>
+                  </span>,</span>
+                  <span class="author-block">
+                    Jie Zhang<sup>1</sup>
+                  </span>,</span>
+                  <span class="author-block">
+                    <a href="https://caiguijiang.github.io/" target="_blank">Caigui Jiang</a><sup>1</sup>
+                  </span>,</span>
+                  <span class="author-block">
+                    <a href="https://yuguo-xjtu.github.io/" target="_blank">Yu Guo</a><sup>*,1</sup>
+                  </span>,</span>
+                  <span class="author-block">
+                    Fei Wang<sup>1</sup>
+                  </span>
+                  </div>
+
+                  <div class="is-size-5 publication-authors">
+                    <span class="author-block">
+                      <sup>1</sup> Xi'an Jiaotong University &nbsp;&nbsp;&nbsp;
+                      <sup>2</sup> Ant Group
+                    <span class="eql-cntrb"><small><br><sup>&dagger;</sup>Indicates Equal Contribution</small></span>
+                    <span class="eql-cntrb"><small><br><sup>*</sup>Indicates Corresponding Author</small></span>
+                  </div>
+
+                  <div class="column has-text-centered">
+                    <div class="publication-links">
+                   <!-- ArXiv abstract Link -->
+                  <span class="link-block">
+                    <a href="https://arxiv.org/pdf/2312.09031.pdf" target="_blank"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                    </span>
+                    <span>arXiv</span>
+                  </a>
+                </span>
+
+                  <!-- Github link -->
+                  <span class="link-block">
+                    <a href="https://github.com/YuanSun-XJTU/iComMa" target="_blank"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code</span>
+                  </a>
+                </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Teaser video-->
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <video poster="" id="teaser" autoplay controls muted loop height="100%">
+        <!-- Your video here -->
+        <source src="static/videos/teaser.mp4"
+        type="video/mp4">
+      </video>
+      <p>Given a query image with an <span style="color:rgb(44, 160, 44)">unknown camera pose</span>, iComMa accurately estimates it by inverting 3D Gaussian Splatting from a <span style="color:rgb(214, 39, 40)">known initial pose</span>. The gradient information inherent in the differences between the query image and the rendered image (which are overlaid in the above video, with a higher degree of overlap indicating more accurate pose estimation) is utilized for iteratively optimizing the camera pose. Compared to iNeRF, the proposed method not only employs pixel-to-pixel comparing but also utilizes 2D keypoints matching, which are connected by <span style="color:rgb(0, 0, 255)">blue</span> lines in the above video. As a result, our method is capable of precisely estimating camera poses even under poor initial conditions, such as large angular deviations.</p>
+    </div>
+  </div>
+</section>
+<!-- End teaser video -->
+
+<!-- Paper abstract -->
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+          We present a method named iComMa to address the 6D camera pose estimation problem in computer vision. Conventional pose estimation methods typically rely on the target's CAD model or necessitate specific network training tailored to particular object classes. Some existing methods have achieved promising results in mesh-free object and scene pose estimation by inverting the Neural Radiance Fields (NeRF). However, they still struggle with adverse initializations such as large rotations and translations. To address this issue, we propose an efficient method for accurate camera pose estimation by inverting 3D Gaussian Splatting (3DGS). Specifically, a gradient-based differentiable framework optimizes camera pose by minimizing the residual between the query image and the rendered image, requiring no training. An end-to-end matching module is designed to enhance the model's robustness against adverse initializations, while minimizing pixel-level comparing loss aids in precise pose estimation. Experimental results on synthetic and complex real-world data demonstrate the effectiveness of the proposed approach in challenging conditions and the accuracy of camera pose estimation.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End paper abstract -->
+
+<!-- pipeline -->
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container">
+      <!-- Paper video. -->
+      <h2 class="title is-3">Pipeline</h2>
+      <div class="hero-body">
+        <img src="static/images/pipeline.svg">
+      </div>
+      <p>Given an <span style="color:rgb(214, 39, 40)">initial camera pose</span>, iComMa iteratively optimizes to estimate the <span style="color:rgb(44, 160, 44)">ground truth pose</span> associated with the query image. For the <em>t</em>-th optimization step, we first render the image corresponding to the camera pose <span>𝑇</span><sub>𝑡</sub> using 3D Gaussian Splatting. Subsequently, we compute the residuals between the rendered image and the query image, which include the matching loss <span>𝓛</span><sub>𝑀𝑎</sub> obtained from the end-to-end matching module and the per-pixel comparing loss <span>𝓛</span><sub>𝐶𝑜𝑚</sub>. The entire framework is differentiable, enabling the optimization of camera poses by utilizing the gradients derived from minimizing the residuals.
+      </p>
+  </div>
+</section>
+<!-- pipeline -->
+
+<!-- Video carousel -->
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container">
+      <h2 class="title is-3">Experimental Results on Synthetic Datasets</h2>
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="item item-video1">
+          <video poster="" id="video1" autoplay controls muted loop height="100%">
+            <!-- Your video file here -->
+            <source src="static/videos/s1.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video2">
+          <video poster="" id="video2" autoplay controls muted loop height="100%">
+            <!-- Your video file here -->
+            <source src="static/videos/s2.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video3">
+          <video poster="" id="video3" autoplay controls muted loop height="100%">\
+            <!-- Your video file here -->
+            <source src="static/videos/s3.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video3">
+          <video poster="" id="video3" autoplay controls muted loop height="100%">\
+            <!-- Your video file here -->
+            <source src="static/videos/s4.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End video carousel -->
+
+<!-- Video carousel -->
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container">
+      <h2 class="title is-3">Experimental Results on Front-facing LLFF Datasets</h2>
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="item item-video1">
+          <video poster="" id="video1" autoplay controls muted loop height="100%">
+            <!-- Your video file here -->
+            <source src="static/videos/l1.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video2">
+          <video poster="" id="video2" autoplay controls muted loop height="100%">
+            <!-- Your video file here -->
+            <source src="static/videos/l2.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video3">
+          <video poster="" id="video3" autoplay controls muted loop height="100%">\
+            <!-- Your video file here -->
+            <source src="static/videos/l3.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video3">
+          <video poster="" id="video3" autoplay controls muted loop height="100%">\
+            <!-- Your video file here -->
+            <source src="static/videos/l4.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End video carousel -->
+
+<!-- Video carousel -->
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container">
+      <h2 class="title is-3">Experimental Results on 360° Scene Datasets</h2>
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="item item-video1">
+          <video poster="" id="video1" autoplay controls muted loop height="100%">
+            <!-- Your video file here -->
+            <source src="static/videos/31.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video2">
+          <video poster="" id="video2" autoplay controls muted loop height="100%">
+            <!-- Your video file here -->
+            <source src="static/videos/32.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video3">
+          <video poster="" id="video3" autoplay controls muted loop height="100%">\
+            <!-- Your video file here -->
+            <source src="static/videos/33.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video3">
+          <video poster="" id="video3" autoplay controls muted loop height="100%">\
+            <!-- Your video file here -->
+            <source src="static/videos/34.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+      </div>
+      <p>
+        Note: iNeRF<sup>&dagger;</sup> is a variant of iNeRF, achieved by inverting Mip-NeRF360.</p>
+    </div>
+  </div>
+</section>
+<!-- End video carousel -->
+
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container">
+      <h2 class="title is-3">Ablation Study</h2>
+      <div id="results-carousel" class="carousel results-carousel">
+       <div class="item">
+        <!-- Your image here -->
+        <img src="static/images/abl1.gif"/>
+      </div>
+      <div class="item">
+        <!-- Your image here -->
+        <img src="static/images/abl2.gif""/>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</section>
+
+
+
+<!--BibTex citation -->
+  <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <h2 class="title">BibTeX</h2>
+      <pre><code>@article{sun2023icomma,
+        title={icomma: Inverting 3d gaussians splatting for camera pose estimation via comparing and matching},
+        author={Sun, Yuan and Wang, Xuan and Zhang, Yunfan and Zhang, Jie and Jiang, Caigui and Guo, Yu and Wang, Fei},
+        journal={arXiv preprint arXiv:2312.09031},
+        year={2023}
+      }</code></pre>
+    </div>
+</section>
+<!--End BibTex citation -->
+
+
+  <footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+
+          <p>
+            This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> which was adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
+            You are free to borrow the of this website, we just ask that you link back to this page in the footer. <br> This website is licensed under a <a rel="license"  href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Statcounter tracking code -->
+  
+<!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
+
+    <!-- End of Statcounter Code -->
+
+  </body>
+  </html>
